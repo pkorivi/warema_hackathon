@@ -19,6 +19,6 @@ def close_completely():
 
 def tilt_percentage(value):
     ah.relay.one.on()
-    sleep((value/100)*0.8)
+    sleep((value/100.0)*0.8)
     ah.relay.one.off()
     
