@@ -2,7 +2,7 @@ import automationhat as ah
 from time import sleep
 
 current_tilt = 0
-current position = 0
+current_position = 0
 
 def open_completely():
     open_percentage(100)
@@ -30,3 +30,9 @@ def tilt_down(value):
     sleep((value/100.0)*0.8)
     ah.relay.two.off()
     
+def read_light():
+    return ah.analog.one.read()
+    
+
+def read_switch():
+    return ah.analog.two.read()

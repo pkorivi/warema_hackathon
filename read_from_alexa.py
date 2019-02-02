@@ -10,17 +10,18 @@ ask = Ask(app, '/')
 
 logging.getLogger("flask_ask").setLevel(logging.DEBUG)
 
-@ask.intent('GPIOControlIntent', mapping={'status': 'status', 'pin': 'pin'})
+@ask.intent('blinds', mapping={})
 def gpio_control(status, pin):
+    print "got control here "
 
-    try:
-        pinNum = int(pin)
-    except Exception as e:
-        return statement('Pin number not valid.')
+    #try:
+    #    pinNum = int(pin)
+    #except Exception as e:
+    #    return statement('Pin number not valid.')
 
-    GPIO.setup(pinNum, GPIO.OUT)
+    #GPIO.setup(pinNum, GPIO.OUT)
 
-    if status in ['on', 'high']:    GPIO.output(pinNum, GPIO.HIGH)
-    if status in ['off', 'low']:    GPIO.output(pinNum, GPIO.LOW)
+    #if status in ['on', 'high']:    GPIO.output(pinNum, GPIO.HIGH)
+    #if status in ['off', 'low']:    GPIO.output(pinNum, GPIO.LOW)
 
-    return statement('Turning pin {} {}'.format(pin, status))
+    return statement('blinds something')
